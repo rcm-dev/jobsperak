@@ -129,7 +129,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   
   // move uploaded file
   if($Result1) {
-	  move_uploaded_file($_FILES["resume_path"]["tmp_name"], "media/resume/" . $timestamp . "-" . str_replace(" ", "-", $_FILES["resume_path"]["name"]));
+	  move_uploaded_file($_FILES["resume_path"]["tmp_name"], "media/resume_candidate/" . $timestamp . "-" . str_replace(" ", "-", $_FILES["resume_path"]["name"]));
   }
 
   $insertGoTo = "jobSeekerMyResume.php";
