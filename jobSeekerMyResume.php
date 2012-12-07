@@ -131,7 +131,7 @@ if (isset($_SESSION['MM_UserID'])) {
   $colname_rsUserResume = $_SESSION['MM_UserID'];
 }
 mysql_select_db($database_conJobsPerak, $conJobsPerak);
-$query_rsUserResume = sprintf("SELECT * FROM jp_resume WHERE users_id_fk = %s", GetSQLValueString($colname_rsUserResume, "int"));
+$query_rsUserResume = sprintf("SELECT * FROM jp_resume WHERE users_id_fk = %s ORDER BY resume_id DESC LIMIT 1", GetSQLValueString($colname_rsUserResume, "int"));
 $rsUserResume = mysql_query($query_rsUserResume, $conJobsPerak) or die(mysql_error());
 $row_rsUserResume = mysql_fetch_assoc($rsUserResume);
 $totalRows_rsUserResume = mysql_num_rows($rsUserResume);
@@ -298,7 +298,7 @@ $totalRows_rsJsSPM = mysql_num_rows($rsJsSPM);
       <td width="32">&nbsp;</td>  
       <td class="def_width_box_3">File name</td>
       <td width="22">:</td>
-      <td><a href="media/resume/<?php echo $row_rsUserResume['resume_path']; ?>"><?php echo $row_rsUserResume['resume_title']; ?></a></td>
+      <td><a href="media/resume_candidate/<?php echo $row_rsUserResume['resume_path']; ?>"><?php echo $row_rsUserResume['resume_title']; ?></a></td>
       </tr>
     <tr>
       <td>&nbsp;</td>
